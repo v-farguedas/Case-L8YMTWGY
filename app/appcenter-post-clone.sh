@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-gradle
+npm install -g appcenter-cli
+gradle -q printVersionCode

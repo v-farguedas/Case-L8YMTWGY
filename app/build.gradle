@@ -43,8 +43,9 @@ dependencies {
 }
 
 
-task printVersionName {
+task printVersionCode {
     doLast {
+        println("Buenas tardes")
         println android.defaultConfig.versionCode
     }
 }
