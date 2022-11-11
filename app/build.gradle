@@ -71,6 +71,13 @@ android {
             buildConfigField "String", "VERSION_BUILD_NUMBER", "\"${projectVersionBuildNumber}\""
         }
     }
+    fixVariantNames("app", applicationVariants)
+    applicationVariants.all { variant ->
+        //apk CANADA
+        def apk = variant.outputs[0].outputFile;
+        def newName = apk.name.replace(".apk", String.format("-ca-%s.apk", defaultConfig.versionName));
+        variant.outputs[0].outputFileName = new File(newName);
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
